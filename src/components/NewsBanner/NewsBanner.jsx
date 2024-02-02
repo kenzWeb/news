@@ -8,7 +8,7 @@ export default function NewsBanner({item}) {
 			<Image image={item?.image} />
 			<h3 className={styles.title}>{item.title}</h3>
 			<p className={styles.extra}>
-				{formatTimeAgo(item.published)} by {item.author}
+				{formatTimeAgo(item.published)} by {item.author}.
 			</p>
 		</div>
 	)
