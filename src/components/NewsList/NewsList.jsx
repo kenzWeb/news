@@ -1,4 +1,4 @@
-import NewsItem from '../components/NewsItem/NewsItem'
+import NewsItem from '../NewsItem/NewsItem'
 import styles from './styles.module.css'
 
 export default function NewsList({news}) {
