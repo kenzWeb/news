@@ -1,5 +1,5 @@
+import Image from '../Image/Image'
 import {formatTimeAgo} from '../helpers/formatTimeAgo'
-import Image from '../image/image'
 import styles from './styles.module.css'
 
 export default function NewsBanner({item}) {

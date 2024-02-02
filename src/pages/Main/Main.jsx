@@ -1,12 +1,12 @@
 import {useEffect, useState} from 'react'
 import {getNews} from '../../api/apiNews.js'
 import NewsBanner from '../../components/NewsBanner/NewsBanner'
+import NewsList from '../../components/NewsList/NewsList'
 import styles from './styles.module.css'
-import NewsList from '../../NewsList/NewsList.jsx'
 
 export default function Main() {
 	const [news, setNews] = useState([])
-	
+
 	useEffect(() => {
 		const fetchNews = async () => {
 			try {
