@@ -1,4 +1,4 @@
-import {formDate} from '../helpers/formatDate'
+import {formDate} from '../../helpers/formatDate.js'
 import styles from './styles.module.css'
 
 export default function Header() {

@@ -10,6 +10,10 @@
 	scrollbar-width: none;
 }
 
+.item {
+	cursor: pointer;
+}
+
 .item,
 .active {
 	display: flex;
