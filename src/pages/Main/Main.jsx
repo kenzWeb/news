@@ -4,7 +4,9 @@ import Categories from '../../components/Categories/Categories.jsx'
 import NewsBanner from '../../components/NewsBanner/NewsBanner'
 import NewsList from '../../components/NewsList/NewsList'
 import Pagination from '../../components/Pagination/Pagination.jsx'
+import Search from '../../components/Search/Search.jsx'
 import Skeleton from '../../components/Skeleton/Skeleton'
+import {useDebounce} from '../../components/helpers/hooks/useDebounce.js'
 import styles from './styles.module.css'
 
 export default function Main() {
@@ -13,8 +15,11 @@ export default function Main() {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [categories, setCategories] = useState([])
 	const [selectCategory, setSelectCategory] = useState('All')
+	const [keywords, setKeywords] = useState('')
 	const totalPages = 10
 	const pageSize = 10
+
+	const debouncedKeywords = useDebounce(keywords, 1000)
 
 	const fetchNews = async (currentPage) => {
 		try {
@@ -23,6 +28,7 @@ export default function Main() {
 				page_number: currentPage,
 				page_size: pageSize,
 				category: selectCategory === 'All' ? null : selectCategory,
+				keywords: debouncedKeywords,
 			})
 			setNews(response.news)
 			setIsLoading(false)
@@ -42,12 +48,13 @@ export default function Main() {
 
 	useEffect(() => {
 		fetchCategories()
-		console.log(categories)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	useEffect(() => {
 		fetchNews(currentPage)
-	}, [currentPage, selectCategory])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentPage, selectCategory, debouncedKeywords])
 
 	const handleNextPage = () => {
 		if (currentPage < totalPages) {
@@ -72,6 +79,7 @@ export default function Main() {
 				selectCategory={selectCategory}
 				setSelectCategory={setSelectCategory}
 			/>
+			<Search keywords={keywords} setKeywords={setKeywords} />
 			{news.length > 0 && !isLoading ? (
 				<NewsBanner item={news[0]} />
 			) : (
