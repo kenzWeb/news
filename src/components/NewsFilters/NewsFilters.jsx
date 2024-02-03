@@ -1,7 +1,8 @@
 import {getCategories} from '../../api/apiNews.js'
 import {useFetch} from '../../helpers/hooks/useFetch.js'
-import Categories from '../Categories/Categories.jsx'
+import {Categories} from '../Categories/Categories.jsx'
 import Search from '../Search/Search.jsx'
+import Slider from '../Slider/Slider.jsx'
 import styles from './styles.module.css'
 
 export default function NewsFilters({filters, changeFilter}) {
@@ -9,11 +10,15 @@ export default function NewsFilters({filters, changeFilter}) {
 	return (
 		<div className={styles.filters}>
 			{dataCategories ? (
-				<Categories
-					categories={dataCategories.categories}
-					selectCategory={filters.category}
-					setSelectCategory={(category) => changeFilter('category', category)}
-				/>
+				<Slider>
+					<Categories
+						categories={dataCategories.categories}
+						selectedCategory={filters.category}
+						setSelectedCategory={(category) =>
+							changeFilter('category', category)
+						}
+					/>
+				</Slider>
 			) : null}
 
 			<Search
