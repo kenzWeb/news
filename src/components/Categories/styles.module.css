@@ -2,7 +2,6 @@
 	display: flex;
 	width: 100%;
 	gap: 8px;
-	margin-bottom: 20px;
 	align-items: flex-start;
 	box-sizing: border-box;
 	overflow-x: auto;
@@ -10,16 +9,11 @@
 	scrollbar-width: none;
 }
 
-.item {
-	cursor: pointer;
-}
-
 .item,
 .active {
 	display: flex;
 	align-items: center;
-	padding: auto;
-	padding: 8px;
+	padding: 8px 16px;
 	border: none;
 	border-radius: 32px;
 	background-color: #f2f4f5;
