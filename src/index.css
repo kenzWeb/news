@@ -10,24 +10,29 @@
 .container {
 	padding: 24px;
 	min-height: 100vh;
+	transition: 0.2s all ease-in-out;
 }
 
 .app.dark .container {
 	background-color: #23272f;
+	transition: 0.2s all ease-in-out;
 }
 
 .app.light .container {
 	background-color: white;
+	transition: 0.2s all ease-in-out;
 }
 
 .app.dark p,
 .app.dark h3,
 .app.dark h1 {
 	color: #f6f7f9;
+	transition: 0.2s all ease-in-out;
 }
 
 .app.light p,
 .app.light h3,
 .app.light h1 {
 	color: black;
+	transition: 0.2s all ease-in-out;
 }

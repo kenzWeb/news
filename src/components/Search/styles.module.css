@@ -1,14 +1,26 @@
 .search {
 	display: flex;
 	width: 100%;
-	background-color: #fff;
+	background-color: white;
 	gap: 12px;
 	margin-top: 30px;
+	transition: 0.2s all ease-in-out;
+}
+
+.light {
+	background-color: white;
+	transition: 0.2s all ease-in-out;
+}
+
+.dark {
+	background-color: #23272f;
+	transition: 0.2s all ease-in-out;
 }
 
 .input {
 	width: 100%;
-	padding: 10px 10px;
+	padding: 10px;
 	border: 1px solid #f2f3f5;
 	border-radius: 12px;
+	transition: 0.2s all ease-in-out;
 }
