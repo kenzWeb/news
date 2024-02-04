@@ -12,7 +12,9 @@ interface Props {
 }
 
 export default function NewsFilters({filters, changeFilter}: Props) {
-	const {data: dataCategories} = useFetch<CategoriesApiResponse, null>(getCategories)
+	const {data: dataCategories} = useFetch<CategoriesApiResponse, null>(
+		getCategories,
+	)
 	return (
 		<div className={styles.filters}>
 			{dataCategories ? (
