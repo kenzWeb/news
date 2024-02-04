@@ -3,6 +3,7 @@ import {PAGE_SIZE, TOTAL_PAGES} from '../../constants/constants.js'
 import {useDebounce} from '../../helpers/hooks/useDebounce.js'
 import {useFetch} from '../../helpers/hooks/useFetch.js'
 import {useFilters} from '../../helpers/hooks/useFilters.js'
+import {NewsApiResponse, ParamsType} from '../../interfaces/index.js'
 import NewsFilters from '../NewsFilters/NewsFilters.jsx'
 import NewsList from '../NewsList/NewsList.jsx'
 import PaginationWrapper from '../PaginationWrapper/PaginationWrapper.jsx'
@@ -18,7 +19,7 @@ export default function NewsByFilters() {
 
 	const debouncedKeywords = useDebounce(filters.keywords, 1000)
 
-	const {data, isLoading} = useFetch(getNews, {
+	const {data, isLoading} = useFetch<NewsApiResponse, ParamsType>(getNews, {
 		...filters,
 		keywords: debouncedKeywords,
 	})
@@ -34,8 +35,8 @@ export default function NewsByFilters() {
 		}
 	}
 
-	const handlePageClick = (page_number) => {
-		changeFilter('page_number', page_number)
+	const handlePageClick = (pageNumber: number) => {
+		changeFilter('page_number', pageNumber)
 	}
 
 	return (
@@ -50,7 +51,7 @@ export default function NewsByFilters() {
 				currentPage={filters.page_number}
 				totalPages={TOTAL_PAGES}
 			>
-				<NewsList isLoading={isLoading} news={data?.news} count={10} />
+				<NewsList isLoading={isLoading} news={data?.news} />
 			</PaginationWrapper>
 		</section>
 	)
