@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function NewsFilters({filters}: Props) {
-	const {data, isLoading} = useGetCategoriesQuery(null)
+	const {data} = useGetCategoriesQuery(null)
 	const {isDark} = useTheme()
 
 	const dispatch = useAppDispatch()
