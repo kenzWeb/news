@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 interface Props {
 	children: React.ReactElement
 	step?: number
+	isDark: boolean;
 }
 
 export default function Slider({children, step = 150}: Props) {
