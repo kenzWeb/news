@@ -1,6 +1,6 @@
-import NewsBanner from '../../../../entities/news/ui/NewsBanner/NewsBanner'
-import withSkeleton from '../../../../shared/hocs/withSkeleton'
-import {INews} from '../../../../shared/interfaces'
+import {NewsBanner} from '@/entities/category'
+import {INews} from '@/entities/news'
+import withSkeleton from '@/shared/hocs/withSkeleton'
 import styles from './styles.module.css'
 interface Props {
 	banners?: INews[] | null
